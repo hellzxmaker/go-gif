@@ -1,0 +1,21 @@
+{
+    "game_uid" : "1234234-2342134-21341234-123424",
+    "game_join_uid" : "3D4FX",
+    "game_join_url" : "http://gifstorm.game/join/3D4FX",
+    "players" : [
+        {
+            "player_uid" : "1234234-2342134-21341234-123424",
+            "name" : "Player 1",
+            "score" : 0
+        },
+        {
+            "player_uid" : "1234234-2342134-21341234-123424",
+            "name" : "Player 2",
+            "score" : 0
+        }
+    ],
+    "game_info" : {
+        "round" : 1,
+        "active_players" : 2
+    }
+}
