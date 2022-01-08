@@ -1,4 +1,4 @@
-package godata
+package players
 
 type Player struct {
 	// Unique ID of for the player. Pulled from their local app instance
