@@ -10,18 +10,6 @@ import (
 	"github.com/hellzxmaker/go-gif/players"
 )
 
-// type GameInfo struct {
-// 	Round         int `json:"round"`
-// 	ActivePlayers int `json:"activePlayers"`
-// }
-
-// type GameSession struct {
-// 	GameJoinUid string           `json:"gameJoinUid"`
-// 	GameJoinUrl string           `json:"gameJoinUrl"`
-// 	Players     []players.Player `json:"players"`
-// 	GameInfo    GameInfo         `json:"gameInfo"`
-// }
-
 // TODO: Remove me!
 var fake_game_info = GameInfo{
 	Round:         1,
@@ -51,6 +39,28 @@ var fake_game_session = GameSession{
 		},
 	},
 	GameInfo: fake_game_info,
+	Questions: []Question{
+		{
+			Q:    "What is the capital of France?",
+			Type: "normal",
+		},
+		{
+			Q:    "What is the capital of Germany?",
+			Type: "normal",
+		},
+		{
+			Q:    "What is the capital of Italy?",
+			Type: "normal",
+		},
+		{
+			Q:    "What is the capital of Spain?",
+			Type: "normal",
+		},
+		{
+			Q:    "What is the capital of the United States?:imageLinkHere",
+			Type: "image",
+		},
+	},
 }
 
 type Handlers struct {
@@ -71,7 +81,6 @@ func (h *Handlers) GetGameSession(w http.ResponseWriter, r *http.Request) {
 		if err == nil {
 			w.Header().Set("Content-Type", "application/json")
 			w.Write(payload)
-			w.WriteHeader(http.StatusOK)
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
 			defer h.logger.Println("games.GetGameSession: Error marshalling JSON: ", err)
