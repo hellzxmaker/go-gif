@@ -32,13 +32,17 @@ From the root of the project:
 
 ## Endpoints Supported (well not really)
 
-- GET /players/[id] # Get a player by ID
-- GET /players/ # Get a collection of players
-- POST /game_sessions # Create a game session
-- GET /game_sessions/[id] # Get a game session by ID
-- DELETE /game_sessions/[id] # Delete a game session by ID
-- GET /game_sessions/[id]/players # Get players in a game session
-- PUT /game_sessions/[id]/players # Add a player to a game session
+- GET /players/[id] # Get a player by ID [X]
+- GET /players/ # Get a collection of players [X]
+- POST /players/ # Create a new player [X]
+- POST /game_sessions # Create a game session [X]
+- GET /game_sessions/[id] # Get a game session by ID [X]
+- DELETE /game_sessions/[id] # Delete a game session by ID [O]
+- GET /game_sessions/[id]/info # Get a game session's info by ID [X]
+- GET /game_sessions/[id]/players # Get players in a game session [X]
+- GET /game_sessions/[id]/questions # Get questions in a game session [X]
+- PUT /game_sessions/[id]/players # Add a player to a game session [O]
+- DELETE /game_sessions/[id]/players/[id] # Remove a player from a game session [O]
 
 ## Additions Required ASAP
 
@@ -50,13 +54,14 @@ From the root of the project:
 - DB type and hosting needs to be confirmed
 - instrument the running to allow for better monitoring
 - document the dev practices like branching etc
+- communication between the clients and the game sessions
 
 
 ## NOTE: EXTRACT ALL OF THIS OUT OF CODE BASE
 
 ## GoGifUrself
 
-Number of players: 2-8 (must be even number of players for pairing)
+Number of players: 2-10 (must be even number of players for pairing)
 
 Players are paired off in a round-robin fashion and asked a series of questions which they must respond with a gif of their choice.
 At the end of each round, the other players vote on their favorite answers. Highest score at the end of three rounds wins!

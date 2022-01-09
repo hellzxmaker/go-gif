@@ -32,7 +32,7 @@ func (h *Handlers) Logger(next http.HandlerFunc) http.HandlerFunc {
 }
 
 func (h *Handlers) SetupRoutes(r *mux.Router) {
-	r.HandleFunc("/", h.Logger(h.Home))
+	r.HandleFunc("/", h.Logger(h.Home)).Methods("GET")
 }
 
 // Constructor
